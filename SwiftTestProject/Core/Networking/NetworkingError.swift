@@ -11,7 +11,6 @@ import Foundation
 // MARK: Protocol
 
 protocol NetworkingError {
-
 }
 
 // MARK: Implementation

@@ -11,19 +11,28 @@ import Foundation
 // MARK: Protocol
 
 protocol AmazonApiRequestManager {
-
+    func riders(completion: @escaping(ApiResponce) -> Void)
 }
 
 // MARK: Implementation
 
 private final class AmazonApiRequestManagerImpl: AmazonApiRequestManager {
+    private let apiService: ApiService
+    
+    init(apiService: ApiService) {
+        self.apiService = apiService
+    }
 
+    func riders(completion: @escaping(ApiResponce) -> Void) {
+        let token = AmazonApiToken.getRiders
+        apiService.request(with: token, completion: completion)
+    }
 }
 
 // MARK: Factory
 
 final class AmazonApiRequestManagerFactory {
-    static func `default`() -> AmazonApiRequestManager {
-        return AmazonApiRequestManagerImpl()
+    static func `default`(apiService: ApiService = ApiServiceFactory.default()) -> AmazonApiRequestManager {
+        return AmazonApiRequestManagerImpl(apiService: apiService)
     }
 }

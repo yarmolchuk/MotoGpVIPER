@@ -32,7 +32,7 @@ private final class AppDelegateRouterImpl: AppDelegateRouter {
         let viewController = ListRidersViewControllerFactory.new(presenter: presenter)
         
         navigationController.setViewControllers([viewController], animated: false)
-        window.rootViewController = viewController
+        window.rootViewController = navigationController
     }
 }
 

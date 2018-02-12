@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var router: AppDelegateRouter!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
+        
+        configureHttpRequestСache()
         
         if let _window = window {
             router = AppDelegateRouterFactory.default(window: _window)
@@ -27,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    private func configureHttpRequestСache() {
+        let cacheSize = 50*1024*1024
+        let cacheDiskSize = 50*1024*1024
+        let requestCache = URLCache(memoryCapacity: cacheSize, diskCapacity: cacheDiskSize, diskPath: "cachedHttpRequest")
+        URLCache.shared = requestCache
     }
 }
 

@@ -11,19 +11,40 @@ import Foundation
 // MARK: Protocol
 
 protocol RidersService {
-
+    func riders(completion: @escaping (_ riders: [Rider]?, _ error: Error?) -> Void)
 }
 
 // MARK: Implementation
 
 private final class RidersServiceImpl: RidersService {
-
+    
+    private let apiRequestManager: AmazonApiRequestManager
+    private let riderMapper: RiderMapper
+    
+    init(apiRequestManager: AmazonApiRequestManager, riderMapper: RiderMapper) {
+        self.apiRequestManager = apiRequestManager
+        self.riderMapper = riderMapper
+    }
+    
+    func riders(completion: @escaping ([Rider]?, Error?) -> Void) {
+        apiRequestManager.riders{ [weak self] (response) in
+            switch response {
+            case .success(let data):
+                completion(self?.riderMapper.map(data), nil)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    
+    }
 }
 
 // MARK: Factory
 
 final class RidersServiceFactory {
-    static func `default`() -> RidersService {
-        return RidersServiceImpl()
+    static func `default`(apiRequestManager: AmazonApiRequestManager = AmazonApiRequestManagerFactory.default(),
+                          riderMapper: RiderMapper = RiderMapperFactory.default()) -> RidersService {
+        return RidersServiceImpl(apiRequestManager: apiRequestManager, riderMapper: riderMapper)
     }
 }
+

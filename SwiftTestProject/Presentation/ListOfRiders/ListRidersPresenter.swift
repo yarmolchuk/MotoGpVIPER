@@ -10,23 +10,29 @@ import Foundation
 
 // MARK: - Output
 
-protocol ListRidersPresenterOutput: class {}
+protocol ListRidersPresenterOutput: class {
+    func viewModelsDidUpdate()
+}
 
 // MARK: - Protocol
 
 protocol ListRidersPresenter: class {
     var output: ListRidersPresenterOutput? { get set }
+    var viewModels: [RiderTableViewCellViewModel] { get set }
     
     func handleViewIsReady()
+    func handleViewModel(viewModel: RiderTableViewCellViewModel)
 }
 
 // MARK: - Implementation
 
 private final class ListRidersPresenterImpl: ListRidersPresenter, ListRidersInteractorOutput {
-    
+
     private let interactor: ListRidersInteractor
     private let router: ListRidersRouter
     weak var output: ListRidersPresenterOutput?
+
+    var viewModels: [RiderTableViewCellViewModel] = []
     
     init(
         interactor: ListRidersInteractor,
@@ -37,7 +43,30 @@ private final class ListRidersPresenterImpl: ListRidersPresenter, ListRidersInte
     }
     
     func handleViewIsReady() {
+        interactor.loadRiders()
+    }
+    
+    func handle(error: Error) {
+        print(error)
+    }
+
+    func handleDidLoad(riders: [Rider]) {
+        DispatchQueue.main.async {
+            self.viewModels = self.riderViewModels(riders: riders)
+            self.output?.viewModelsDidUpdate()
+        }
+    }
+    
+    func handleViewModel(viewModel: RiderTableViewCellViewModel) {
+        guard let detailInteractor = interactor.detailedInfoAboutRiderInteractor(riderUid: viewModel.uid) else { return }
+        let detailRouter = router.detailedInfoAboutRiderRouter()
+        let detailPresenter = DetailedInfoAboutRiderPresenterFactory.default(interactor: detailInteractor, router: detailRouter)
         
+        router.routeToDetailsRiderInfo(presenter: detailPresenter)
+    }
+    
+    private func riderViewModels(riders: [Rider]) -> [RiderTableViewCellViewModel] {
+        return riders.map{ RiderTableViewCellViewModelFactory.default(name: $0.name, number: "", urlPhoto: $0.photoUrl, uid: $0.uid) }
     }
 }
 

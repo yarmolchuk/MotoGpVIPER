@@ -18,7 +18,6 @@ protocol ApiService {
 
 private final class ApiServiceImpl: ApiService {
     func request(with toket: TargetType, completion: @escaping (ApiResponce) -> Void) {
-        
         let url = URL(string: toket.baseUrl + toket.path)
         let urlSession = URLSession.shared
         
