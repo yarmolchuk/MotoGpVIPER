@@ -58,11 +58,10 @@ private final class TeamsPresenterImpl: TeamsPresenter, TeamsInteractorOutput {
     }
     
     func handleViewModel(viewModel: TeamTableViewCellViewModel) {
-//        guard let riderInteractor = interactor.riderInteractor(teamUid: viewModel.uid) else { return }
-//        let detailRouter = router.detailedInfoAboutRiderRouter()
-//        let detailPresenter = DetailedInfoAboutRiderPresenterFactory.default(interactor: detailInteractor, router: detailRouter)
-//
-//        router.routeToDetailsRiderInfo(presenter: detailPresenter)
+        guard let riderInteractor = interactor.ridersInteractor(teamUid: viewModel.uid) else { return }
+        let riderRouter = router.ridersRouter()
+        let riderPresenter = RidersPresenterFactory.default(interactor: riderInteractor, router: riderRouter)
+        router.routeToListRiders(presenter: riderPresenter)
     }
     
     private func teamViewModels(teams: [Team]) -> [TeamTableViewCellViewModel] {

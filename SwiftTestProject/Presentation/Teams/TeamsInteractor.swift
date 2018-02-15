@@ -21,7 +21,7 @@ protocol TeamsInteractor: class {
     var output: TeamsInteractorOutput? { get set }
     
     func loadTeams()
-//    func detailedInfoAboutRiderInteractor(riderUid: String) -> DetailedInfoAboutRiderInteractor?
+    func ridersInteractor(teamUid: String) -> RidersInteractor?
 }
 
 // MARK: - Implementation
@@ -47,13 +47,17 @@ private final class TeamsInteractorImpl: TeamsInteractor {
         }
     }
     
-//    func riderInteractor(teamUid: String) -> RidersInteractor? {
-//        if let selectedTeam = teams.first(where: {$0.uid == teamUid}) {
-////            return RidersInteractorFactory.default(rider: selectedTeam)
-//        } else {
-//            return nil
-//        }
-//    }
+    func ridersInteractor(teamUid: String) -> RidersInteractor? {
+        if let selectedTeam = teams.first(where: {$0.uid == teamUid}) {
+            
+            print(selectedTeam)
+            return RidersInteractorFactory.default()
+            
+//return RidersInteractorFactory.default(rider: selectedTeam)
+        } else {
+            return nil
+        }
+    }
 }
 
 // MARK: - Factory

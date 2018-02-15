@@ -12,13 +12,22 @@ import UIKit
 // MARK: - Protocol
 
 protocol TeamsRouter {
-    
+    func ridersRouter() -> RidersRouter
+    func routeToListRiders(presenter: RidersPresenter)
 }
 
 // MARK: - Implementation
 
 private final class TeamsRouterImpl: NavigationRouter, TeamsRouter {
     
+    func ridersRouter() -> RidersRouter {
+        return RidersRouterFactory.default(navigationController: navigationController)
+    }
+    
+    func routeToListRiders(presenter: RidersPresenter) {
+        let controller = RidersViewControllerFactory.new(presenter: presenter)
+        navigationController.pushViewController(controller, animated: true)
+    }
 }
 
 // MARK: - Factory
