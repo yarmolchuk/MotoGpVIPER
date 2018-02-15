@@ -11,14 +11,14 @@ import UIKit
 
 // MARK: - Protocol
 
-protocol ListRidersRouter {
+protocol RidersRouter {
     func detailedInfoAboutRiderRouter() -> DetailedInfoAboutRiderRouter
     func routeToDetailsRiderInfo(presenter: DetailedInfoAboutRiderPresenter)
 }
 
 // MARK: - Implementation
 
-private final class ListRidersRouterImpl: NavigationRouter, ListRidersRouter {
+private final class RidersRouterImpl: NavigationRouter, RidersRouter {
     
     func detailedInfoAboutRiderRouter() -> DetailedInfoAboutRiderRouter {
         return DetailedInfoAboutRiderRouterFactory.default(navigationController: navigationController)
@@ -32,11 +32,11 @@ private final class ListRidersRouterImpl: NavigationRouter, ListRidersRouter {
 
 // MARK: - Factory
 
-final class ListRidersRouterFactory {
+final class RidersRouterFactory {
     static func `default`(
         navigationController: UINavigationController
-    ) -> ListRidersRouter {
-        return ListRidersRouterImpl(
+    ) -> RidersRouter {
+        return RidersRouterImpl(
             with: navigationController)
     }
 }

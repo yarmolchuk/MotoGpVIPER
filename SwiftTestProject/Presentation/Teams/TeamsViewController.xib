@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListRidersViewControllerViewController" customModule="SwiftTestProject" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeamsViewControllerViewController" customModule="SwiftTestProject" customModuleProvider="target">
             <connections>
-                <outlet property="ridersTableView" destination="H0W-oi-tYu" id="BA2-nU-vGB"/>
+                <outlet property="tableView" destination="i86-3I-NdH" id="2be-1P-BCs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +20,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H0W-oi-tYu">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i86-3I-NdH">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="H0W-oi-tYu" secondAttribute="trailing" id="GE4-zF-eDb"/>
-                <constraint firstItem="H0W-oi-tYu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LUy-TY-y9e"/>
-                <constraint firstAttribute="bottom" secondItem="H0W-oi-tYu" secondAttribute="bottom" id="UrC-Rp-ITI"/>
-                <constraint firstItem="H0W-oi-tYu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="syQ-rQ-dSw"/>
+                <constraint firstAttribute="bottom" secondItem="i86-3I-NdH" secondAttribute="bottom" id="0tx-fe-lkg"/>
+                <constraint firstItem="i86-3I-NdH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3q1-Zk-KXG"/>
+                <constraint firstItem="i86-3I-NdH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BAY-qg-c8h"/>
+                <constraint firstAttribute="trailing" secondItem="i86-3I-NdH" secondAttribute="trailing" id="VpD-Wn-r8P"/>
             </constraints>
-            <point key="canvasLocation" x="43" y="27"/>
+            <point key="canvasLocation" x="-124" y="36"/>
         </view>
     </objects>
 </document>

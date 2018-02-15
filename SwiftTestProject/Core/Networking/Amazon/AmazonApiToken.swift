@@ -10,6 +10,7 @@ import Foundation
 
 enum AmazonApiToken {
     case getRiders
+    case getTeams
 }
 
 extension AmazonApiToken: TargetType {
@@ -23,6 +24,8 @@ extension AmazonApiToken: TargetType {
         switch self {
         case .getRiders:
             return "motogpriders/riders.json"
+        case .getTeams:
+            return "motogpriders/teams.json"
         }
     }
     var method: Method {

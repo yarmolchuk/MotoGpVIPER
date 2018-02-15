@@ -10,15 +10,15 @@ import Foundation
 
 // MARK: - Output
 
-protocol ListRidersInteractorOutput: class {
+protocol RidersInteractorOutput: class {
     func handle(error: Error)
     func handleDidLoad(riders: [Rider])
 }
 
 // MARK: - Protocol
 
-protocol ListRidersInteractor: class {
-    var output: ListRidersInteractorOutput? { get set }
+protocol RidersInteractor: class {
+    var output: RidersInteractorOutput? { get set }
     
     func loadRiders()
     func detailedInfoAboutRiderInteractor(riderUid: String) -> DetailedInfoAboutRiderInteractor?
@@ -26,10 +26,9 @@ protocol ListRidersInteractor: class {
 
 // MARK: - Implementation
 
-private final class ListRidersInteractorImpl: ListRidersInteractor {
-    weak var output: ListRidersInteractorOutput?
+private final class RidersInteractorImpl: RidersInteractor {
+    weak var output: RidersInteractorOutput?
     private let ridersService: RidersService
-    
     private var riders: [Rider] = []
     
     init(ridersService: RidersService) {
@@ -58,8 +57,8 @@ private final class ListRidersInteractorImpl: ListRidersInteractor {
 
 // MARK: - Factory
 
-final class ListRidersInteractorFactory {
-    static func `default`(ridersService: RidersService = RidersServiceFactory.default()) -> ListRidersInteractor {
-        return ListRidersInteractorImpl(ridersService: ridersService)
+final class RidersInteractorFactory {
+    static func `default`(ridersService: RidersService = RidersServiceFactory.default()) -> RidersInteractor {
+        return RidersInteractorImpl(ridersService: ridersService)
     }
 }

@@ -10,14 +10,14 @@ import UIKit
 
 // MARK: - Implementation
 
-class ListRidersViewController: UIViewController, ListRidersPresenterOutput {
+class RidersViewController: UIViewController, RidersPresenterOutput {
     
-    fileprivate let presenter: ListRidersPresenter
+    fileprivate let presenter: RidersPresenter
     @IBOutlet weak var ridersTableView: UITableView!
     
-    init(presenter: ListRidersPresenter) {
+    init(presenter: RidersPresenter) {
         self.presenter = presenter
-        super.init(nibName: ListRidersViewController.className, bundle: nil)
+        super.init(nibName: RidersViewController.className, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,7 +49,7 @@ class ListRidersViewController: UIViewController, ListRidersPresenterOutput {
     }
 }
 
-extension ListRidersViewController : UITableViewDataSource {
+extension RidersViewController : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = presenter.viewModels[indexPath.row]
@@ -63,7 +63,7 @@ extension ListRidersViewController : UITableViewDataSource {
     }
 }
 
-extension ListRidersViewController : UITableViewDelegate {
+extension RidersViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.handleViewModel(viewModel: presenter.viewModels[indexPath.row])
@@ -72,11 +72,11 @@ extension ListRidersViewController : UITableViewDelegate {
 
 // MARK: - Factory
 
-final class ListRidersViewControllerFactory {
+final class RidersViewControllerFactory {
     static func new(
-        presenter: ListRidersPresenter
-    ) -> ListRidersViewController {
-        let controller = ListRidersViewController(presenter: presenter)
+        presenter: RidersPresenter
+    ) -> RidersViewController {
+        let controller = RidersViewController(presenter: presenter)
         presenter.output = controller
         return controller
     }

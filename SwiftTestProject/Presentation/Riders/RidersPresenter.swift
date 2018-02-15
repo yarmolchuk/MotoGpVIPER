@@ -10,14 +10,14 @@ import Foundation
 
 // MARK: - Output
 
-protocol ListRidersPresenterOutput: class {
+protocol RidersPresenterOutput: class {
     func viewModelsDidUpdate()
 }
 
 // MARK: - Protocol
 
-protocol ListRidersPresenter: class {
-    var output: ListRidersPresenterOutput? { get set }
+protocol RidersPresenter: class {
+    var output: RidersPresenterOutput? { get set }
     var viewModels: [RiderTableViewCellViewModel] { get set }
     
     func handleViewIsReady()
@@ -26,17 +26,17 @@ protocol ListRidersPresenter: class {
 
 // MARK: - Implementation
 
-private final class ListRidersPresenterImpl: ListRidersPresenter, ListRidersInteractorOutput {
+private final class RidersPresenterImpl: RidersPresenter, RidersInteractorOutput {
 
-    private let interactor: ListRidersInteractor
-    private let router: ListRidersRouter
-    weak var output: ListRidersPresenterOutput?
+    private let interactor: RidersInteractor
+    private let router: RidersRouter
+    weak var output: RidersPresenterOutput?
 
     var viewModels: [RiderTableViewCellViewModel] = []
     
     init(
-        interactor: ListRidersInteractor,
-        router: ListRidersRouter
+        interactor: RidersInteractor,
+        router: RidersRouter
     ) {
         self.interactor = interactor
         self.router = router
@@ -72,12 +72,12 @@ private final class ListRidersPresenterImpl: ListRidersPresenter, ListRidersInte
 
 // MARK: - Factory
 
-final class ListRidersPresenterFactory {
+final class RidersPresenterFactory {
     static func `default`(
-        interactor: ListRidersInteractor = ListRidersInteractorFactory.default(),
-        router: ListRidersRouter
-    ) -> ListRidersPresenter {
-        let presenter = ListRidersPresenterImpl(
+        interactor: RidersInteractor = RidersInteractorFactory.default(),
+        router: RidersRouter
+    ) -> RidersPresenter {
+        let presenter = RidersPresenterImpl(
             interactor: interactor,
             router: router
         )

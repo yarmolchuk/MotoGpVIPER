@@ -27,9 +27,9 @@ private final class AppDelegateRouterImpl: AppDelegateRouter {
     func routeToListRiders() {
         let navigationController = UINavigationController()
         
-        let router = ListRidersRouterFactory.default(navigationController: navigationController)
-        let presenter = ListRidersPresenterFactory.default(router: router)
-        let viewController = ListRidersViewControllerFactory.new(presenter: presenter)
+        let router = TeamsRouterFactory.default(navigationController: navigationController)
+        let presenter = TeamsPresenterFactory.default(router: router)
+        let viewController = TeamsViewControllerFactory.new(presenter: presenter)
         
         navigationController.setViewControllers([viewController], animated: false)
         window.rootViewController = navigationController

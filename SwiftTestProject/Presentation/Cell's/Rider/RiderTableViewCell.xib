@@ -61,7 +61,7 @@
                 <outlet property="numberLabel" destination="n63-2s-zMj" id="2bD-9q-YHt"/>
                 <outlet property="photoImageView" destination="Hu4-pS-1Oq" id="xZ7-Kb-cke"/>
             </connections>
-            <point key="canvasLocation" x="-451" y="-117"/>
+            <point key="canvasLocation" x="-160" y="-87"/>
         </tableViewCell>
     </objects>
 </document>

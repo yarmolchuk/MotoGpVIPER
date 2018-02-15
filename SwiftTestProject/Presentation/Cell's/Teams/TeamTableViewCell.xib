@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Menlo.ttc">
+            <string>Menlo-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamTableViewCellIdentifier" rowHeight="80" id="TMm-W9-xt1" customClass="TeamTableViewCell" customModule="SwiftTestProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TMm-W9-xt1" id="CKK-o2-dta">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="mGv-Mk-dew">
+                        <rect key="frame" x="16" y="25" width="343" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="v21-2r-BcG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="22"/>
+                        <color key="textColor" red="0.1843137255" green="0.35294117650000001" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mGv-Mk-dew" firstAttribute="top" secondItem="CKK-o2-dta" secondAttribute="top" constant="25" id="3Q6-5F-D9e"/>
+                    <constraint firstAttribute="trailing" secondItem="mGv-Mk-dew" secondAttribute="trailing" constant="16" id="8T9-2m-0sb"/>
+                    <constraint firstItem="mGv-Mk-dew" firstAttribute="leading" secondItem="CKK-o2-dta" secondAttribute="leading" constant="16" id="OGv-4l-z6D"/>
+                    <constraint firstAttribute="bottom" secondItem="mGv-Mk-dew" secondAttribute="bottom" constant="26.5" id="ug7-xr-7cj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="mGv-Mk-dew" id="UrY-Co-Rqg"/>
+            </connections>
+            <point key="canvasLocation" x="-93.5" y="-73"/>
+        </tableViewCell>
+    </objects>
+</document>
