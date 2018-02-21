@@ -10,6 +10,7 @@ import Foundation
 
 final class Rider {
     let uid: String
+    let teamUid: String
     
     let name: String
     var team: String
@@ -21,8 +22,10 @@ final class Rider {
     var photoUrl: String
     
     init(uid: String, name: String, team: String, bike: String, placeOfBirth: String, dateOfBirth: String,
-         weight: String, height: String, photoUrl: String) {
+         weight: String, height: String, photoUrl: String, teamUid: String) {
+    
         self.uid = uid
+        self.teamUid = teamUid
         
         self.name = name
         self.team = team

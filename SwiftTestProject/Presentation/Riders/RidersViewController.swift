@@ -66,6 +66,8 @@ extension RidersViewController : UITableViewDataSource {
 extension RidersViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         presenter.handleViewModel(viewModel: presenter.viewModels[indexPath.row])
     }
 }

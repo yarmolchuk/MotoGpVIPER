@@ -38,6 +38,9 @@ class TeamsViewController: UIViewController, TeamsPresenterOutput {
 
     private func configureNavigationBar() {
         self.title = "Moto GP Teams"
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show all", style: .plain,
+                                                            target: self, action: #selector(showAllRiders))
     }
     
     private func configureTableView() {
@@ -45,6 +48,10 @@ class TeamsViewController: UIViewController, TeamsPresenterOutput {
         tableView.delegate = self
         tableView.register(UINib(nibName: "TeamTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "TeamTableViewCellIdentifier")
+    }
+    
+    @objc fileprivate func showAllRiders() {
+        presenter.handleShowAllRiders()
     }
 }
 
@@ -65,6 +72,8 @@ extension TeamsViewController : UITableViewDataSource {
 extension TeamsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         presenter.handleViewModel(viewModel: presenter.viewModels[indexPath.row])
     }
 }

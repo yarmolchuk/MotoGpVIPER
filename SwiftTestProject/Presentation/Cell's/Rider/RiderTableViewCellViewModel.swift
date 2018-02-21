@@ -14,28 +14,25 @@ protocol TableViewCellViewModel {
 }
 
 protocol RiderTableViewCellViewModel:  TableViewCellViewModel {
+    var uid: String {get}
     var name: String {get}
     var number: String {get}
     var urlPhoto: String {get}
-    
-    var uid: String {get}
 }
 
 // MARK: Implementation
 
 private class RiderTableViewCellViewModelImpl: RiderTableViewCellViewModel {
     let uid: String
-    
     let name: String
     let number: String
     let urlPhoto: String
     
     init(name: String, number: String, urlPhoto: String, uid: String) {
+        self.uid = uid
         self.name = name
         self.number = number
         self.urlPhoto = urlPhoto
-        
-        self.uid = uid
     }
 }
 

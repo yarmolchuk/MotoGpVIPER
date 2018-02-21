@@ -13,12 +13,4 @@ enum Encoding {
     case json
     case url
     case jsonArray
-    
-//    func paramterEncoding() -> ParameterEncoding {
-//        switch self {
-//        case .json: return JSONEncoding.default
-//        case .url: return URLEncoding.default
-//        case .jsonArray: return ArrayEncoding.default
-//        }
-//    }
 }

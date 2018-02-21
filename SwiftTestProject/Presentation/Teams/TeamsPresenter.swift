@@ -22,6 +22,7 @@ protocol TeamsPresenter: class {
     
     func handleViewIsReady()
     func handleViewModel(viewModel: TeamTableViewCellViewModel)
+    func handleShowAllRiders() 
 }
 
 // MARK: - Implementation
@@ -58,7 +59,15 @@ private final class TeamsPresenterImpl: TeamsPresenter, TeamsInteractorOutput {
     }
     
     func handleViewModel(viewModel: TeamTableViewCellViewModel) {
-        guard let riderInteractor = interactor.ridersInteractor(teamUid: viewModel.uid) else { return }
+        let team = Team(uid: viewModel.uid, name: viewModel.name)
+        guard let riderInteractor = interactor.teamRidersInteractor(team: team) else { return }
+        let riderRouter = router.ridersRouter()
+        let riderPresenter = RidersPresenterFactory.default(interactor: riderInteractor, router: riderRouter)
+        router.routeToListRiders(presenter: riderPresenter)
+    }
+    
+    func handleShowAllRiders() {
+        guard let riderInteractor = interactor.ridersInteractor() else { return }
         let riderRouter = router.ridersRouter()
         let riderPresenter = RidersPresenterFactory.default(interactor: riderInteractor, router: riderRouter)
         router.routeToListRiders(presenter: riderPresenter)

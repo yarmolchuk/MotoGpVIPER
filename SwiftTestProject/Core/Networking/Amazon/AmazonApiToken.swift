@@ -23,7 +23,7 @@ extension AmazonApiToken: TargetType {
     var path: String {
         switch self {
         case .getRiders:
-            return "motogpriders/riders.json"
+            return "motogpriders/riders.json?versionid=PwtHz5pl5CbkU.W.OhqBmNGOrjrT7X9f"
         case .getTeams:
             return "motogpriders/teams.json"
         }

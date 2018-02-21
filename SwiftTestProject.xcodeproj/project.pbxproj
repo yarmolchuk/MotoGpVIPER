@@ -127,8 +127,8 @@
 		413260F1202B7361009B17D1 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				415F43632031EE6100EB18BE /* Team.swift */,
 				413260F2202B7379009B17D1 /* Rider.swift */,
+				415F43632031EE6100EB18BE /* Team.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -186,6 +186,7 @@
 		41650AFA202F336F0083B5DB /* DetailedInfoAboutRider */ = {
 			isa = PBXGroup;
 			children = (
+				416547D2203D867400B1C3A3 /* Cell's */,
 				41650AFB2030CE700083B5DB /* DetailedInfoAboutRiderPresenter.swift */,
 				41650AFC2030CE700083B5DB /* DetailedInfoAboutRiderRouter.swift */,
 				41650AFD2030CE700083B5DB /* DetailedInfoAboutRiderViewController.swift */,
@@ -201,6 +202,13 @@
 				41650B092030EE900083B5DB /* DetailInfoRiderViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		416547D2203D867400B1C3A3 /* Cell's */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Cell's";
 			sourceTree = "<group>";
 		};
 		41FBEBBC2027800F003750D6 = {

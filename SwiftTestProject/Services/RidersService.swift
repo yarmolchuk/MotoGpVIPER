@@ -12,6 +12,7 @@ import Foundation
 
 protocol RidersService {
     func riders(completion: @escaping (_ riders: [Rider]?, _ error: Error?) -> Void)
+    func teamRiders(team: Team, completion: @escaping ([Rider]?, Error?) -> Void)
 }
 
 // MARK: Implementation
@@ -32,10 +33,22 @@ private final class RidersServiceImpl: RidersService {
             case .success(let data):
                 completion(self?.riderMapper.map(data), nil)
             case .failure(let error):
-                print(error)
+                completion(nil, error)
             }
         }
+    }
     
+    func teamRiders(team: Team, completion: @escaping ([Rider]?, Error?) -> Void) {
+        apiRequestManager.riders{ [weak self] (response) in
+            switch response {
+            case .success(let data):
+                if let riders = self?.riderMapper.map(data) {
+                    completion(riders.filter{$0.teamUid == team.uid}, nil)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
     }
 }
 
