@@ -1,23 +1,18 @@
 //
-//  RiderTableViewCell.swift
+//  PhotoCell.swift
 //  SwiftTestProject
 //
-//  Created by Dima Yarmolchuk on 2/7/18.
-//  Copyright © 2018 Dima Yarmolchuk. All rights reserved.
+//  Created by Dima Yarmolchuk on 2/23/18.
+//Copyright © 2018 Dima Yarmolchuk. All rights reserved.
 //
 
 import UIKit
 
-class RiderTableViewCell: UITableViewCell {
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var numberLabel: UILabel!
+class PhotoCell: UITableViewCell {
     
-    func populate(with viewModel: RiderTableViewCellViewModel) {
-        nameLabel.text = viewModel.name
-        numberLabel.text = viewModel.number
-        photoImageView.image = nil
-        
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    func populate(with viewModel: PhotoCellViewModel) {
         getDataFromUrl(url: URL(string: viewModel.urlPhoto)!) { [weak self] (data, _, _) in
             if let _data = data {
                 DispatchQueue.main.async {
@@ -29,5 +24,6 @@ class RiderTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
     }
 }

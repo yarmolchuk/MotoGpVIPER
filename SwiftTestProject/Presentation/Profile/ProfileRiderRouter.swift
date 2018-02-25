@@ -11,23 +11,23 @@ import UIKit
 
 // MARK: - Protocol
 
-protocol DetailedInfoAboutRiderRouter {
+protocol ProfileRiderRouter {
     
 }
 
 // MARK: - Implementation
 
-private final class DetailedInfoAboutRiderRouterImpl: DetailedInfoAboutRiderRouter {
+private final class ProfileRiderRouterImpl: ProfileRiderRouter {
     
 }
 
 // MARK: - Factory
 
-final class DetailedInfoAboutRiderRouterFactory {
+final class ProfileRiderRouterFactory {
     static func `default`(
         navigationController: UINavigationController
-    ) -> DetailedInfoAboutRiderRouter {
-        return DetailedInfoAboutRiderRouterImpl(
+    ) -> ProfileRiderRouter {
+        return ProfileRiderRouterImpl(
         )
     }
 }

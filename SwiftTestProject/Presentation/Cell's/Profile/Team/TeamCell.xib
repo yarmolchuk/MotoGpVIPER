@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamCellIdentifier" id="TMm-W9-xt1" customClass="TeamCell" customModule="SwiftTestProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TMm-W9-xt1" id="CKK-o2-dta">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngi-Vy-AIW">
+                        <rect key="frame" x="16" y="11" width="46.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="gft-Xq-4ee"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="team" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEy-GF-t85">
+                        <rect key="frame" x="76" y="11" width="283" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="re1-1L-0Ug"/>
+                            <constraint firstAttribute="width" constant="283" id="uPI-Si-2nw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="nEy-GF-t85" secondAttribute="bottom" constant="11.5" id="Diz-M8-e33"/>
+                    <constraint firstItem="Ngi-Vy-AIW" firstAttribute="top" secondItem="CKK-o2-dta" secondAttribute="top" constant="11" id="WxF-By-oPG"/>
+                    <constraint firstItem="nEy-GF-t85" firstAttribute="leading" secondItem="Ngi-Vy-AIW" secondAttribute="trailing" constant="13.5" id="hTM-Av-KXB"/>
+                    <constraint firstItem="nEy-GF-t85" firstAttribute="top" secondItem="CKK-o2-dta" secondAttribute="top" constant="11" id="hyR-hQ-wcH"/>
+                    <constraint firstAttribute="trailing" secondItem="nEy-GF-t85" secondAttribute="trailing" constant="16" id="nBx-4R-T0P"/>
+                    <constraint firstAttribute="bottom" secondItem="Ngi-Vy-AIW" secondAttribute="bottom" constant="11.5" id="nbs-Yx-Ab5"/>
+                    <constraint firstItem="Ngi-Vy-AIW" firstAttribute="leading" secondItem="CKK-o2-dta" secondAttribute="leading" constant="16" id="pK1-Y5-kqJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="teamILabel" destination="nEy-GF-t85" id="52a-xe-jGp"/>
+            </connections>
+            <point key="canvasLocation" x="-20.5" y="-70"/>
+        </tableViewCell>
+    </objects>
+</document>

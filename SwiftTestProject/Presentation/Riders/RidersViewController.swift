@@ -36,7 +36,6 @@ class RidersViewController: UIViewController, RidersPresenterOutput {
         self.ridersTableView.reloadData()
     }
     
-    
     private func configureNavigationBar() {
         self.title = "Riders"
     }
@@ -48,6 +47,8 @@ class RidersViewController: UIViewController, RidersPresenterOutput {
                                  forCellReuseIdentifier: "RiderTableViewCellIdentifier")
     }
 }
+
+// MARK: - Extension
 
 extension RidersViewController : UITableViewDataSource {
 

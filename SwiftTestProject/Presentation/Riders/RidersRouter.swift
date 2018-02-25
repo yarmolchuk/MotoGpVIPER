@@ -12,20 +12,20 @@ import UIKit
 // MARK: - Protocol
 
 protocol RidersRouter {
-    func detailedInfoAboutRiderRouter() -> DetailedInfoAboutRiderRouter
-    func routeToDetailsRiderInfo(presenter: DetailedInfoAboutRiderPresenter)
+    func profileRiderRouter() -> ProfileRiderRouter
+    func routeToProfileRiderInfo(presenter: ProfileRiderPresenter)
 }
 
 // MARK: - Implementation
 
 private final class RidersRouterImpl: NavigationRouter, RidersRouter {
     
-    func detailedInfoAboutRiderRouter() -> DetailedInfoAboutRiderRouter {
-        return DetailedInfoAboutRiderRouterFactory.default(navigationController: navigationController)
+    func profileRiderRouter() -> ProfileRiderRouter {
+        return ProfileRiderRouterFactory.default(navigationController: navigationController)
     }
     
-    func routeToDetailsRiderInfo(presenter: DetailedInfoAboutRiderPresenter) {
-        let controller = DetailedInfoAboutRiderViewControllerFactory.new(presenter: presenter)
+    func routeToProfileRiderInfo(presenter: ProfileRiderPresenter) {
+        let controller = ProfileRiderViewControllerFactory.new(presenter: presenter)
         navigationController.pushViewController(controller, animated: true)
     }
 }

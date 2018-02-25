@@ -58,11 +58,11 @@ private final class RidersPresenterImpl: RidersPresenter, RidersInteractorOutput
     }
     
     func handleViewModel(viewModel: RiderTableViewCellViewModel) {
-        guard let detailInteractor = interactor.detailedInfoAboutRiderInteractor(riderUid: viewModel.uid) else { return }
-        let detailRouter = router.detailedInfoAboutRiderRouter()
-        let detailPresenter = DetailedInfoAboutRiderPresenterFactory.default(interactor: detailInteractor, router: detailRouter)
+        guard let profileRiderInteractor = interactor.profileRiderInteractor(riderUid: viewModel.uid) else { return }
+        let profileRiderRouter = router.profileRiderRouter()
+        let profileRiderPresenter = ProfileRiderPresenterFactory.default(interactor: profileRiderInteractor, router: profileRiderRouter)
         
-        router.routeToDetailsRiderInfo(presenter: detailPresenter)
+        router.routeToProfileRiderInfo(presenter: profileRiderPresenter)
     }
     
     private func riderViewModels(riders: [Rider]) -> [RiderTableViewCellViewModel] {

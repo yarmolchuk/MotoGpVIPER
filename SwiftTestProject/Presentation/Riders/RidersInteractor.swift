@@ -21,7 +21,7 @@ protocol RidersInteractor: class {
     var output: RidersInteractorOutput? { get set }
     
     func loadRiders()
-    func detailedInfoAboutRiderInteractor(riderUid: String) -> DetailedInfoAboutRiderInteractor?
+    func profileRiderInteractor(riderUid: String) -> ProfileRiderInteractor?
 }
 
 // MARK: - Implementation
@@ -47,9 +47,9 @@ private final class RidersInteractorImpl: RidersInteractor {
         }
     }
 
-    func detailedInfoAboutRiderInteractor(riderUid: String) -> DetailedInfoAboutRiderInteractor? {        
+    func profileRiderInteractor(riderUid: String) -> ProfileRiderInteractor? {
         if let selectedRider = riders.first(where: {$0.uid == riderUid}) {
-            return DetailedInfoAboutRiderInteractorFactory.default(rider: selectedRider)
+            return ProfileRiderInteractorFactory.default(rider: selectedRider, ridersService: ridersService)
         } else {
             return nil
         }
@@ -80,9 +80,9 @@ private final class TeamRidersInteractorImpl: RidersInteractor {
         }
     }
     
-    func detailedInfoAboutRiderInteractor(riderUid: String) -> DetailedInfoAboutRiderInteractor? {
+    func profileRiderInteractor(riderUid: String) -> ProfileRiderInteractor? {
         if let selectedRider = riders.first(where: {$0.uid == riderUid}) {
-            return DetailedInfoAboutRiderInteractorFactory.default(rider: selectedRider)
+            return ProfileRiderInteractorFactory.default(rider: selectedRider, ridersService: ridersService)
         } else {
             return nil
         }

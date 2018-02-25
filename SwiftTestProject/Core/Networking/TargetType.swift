@@ -14,6 +14,7 @@ protocol TargetType {
     var baseUrl: String { get }
     var parameters: [String: Any] { get }
     var path: String { get }
+    var expansion: String { get }
     var method: Method { get }
     var encoding: Encoding { get }
     var headers: [String: String] { get }

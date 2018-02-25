@@ -11,7 +11,7 @@ import Foundation
 // MARK: Protocol
 
 protocol ApiService {
-    func request(with toket:TargetType, completion: @escaping(ApiResponce) -> Void )
+    func request(with toket:TargetType, completion: @escaping(ApiResponce) -> Void)
 }
 
 // MARK: Implementation

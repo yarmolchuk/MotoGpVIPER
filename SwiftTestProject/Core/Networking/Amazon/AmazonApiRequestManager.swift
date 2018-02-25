@@ -13,6 +13,7 @@ import Foundation
 protocol AmazonApiRequestManager {
     func riders(completion: @escaping(ApiResponce) -> Void)
     func teams(completion: @escaping(ApiResponce) -> Void)
+    func profile(with uid: String, completion: @escaping(ApiResponce) -> Void)
 }
 
 // MARK: Implementation
@@ -31,6 +32,11 @@ private final class AmazonApiRequestManagerImpl: AmazonApiRequestManager {
     
     func teams(completion: @escaping(ApiResponce) -> Void) {
         let token = AmazonApiToken.getTeams
+        apiService.request(with: token, completion: completion)
+    }
+    
+    func profile(with uid: String, completion: @escaping(ApiResponce) -> Void) {
+        let token = AmazonApiToken.getProfile(uid: uid)
         apiService.request(with: token, completion: completion)
     }
 }
