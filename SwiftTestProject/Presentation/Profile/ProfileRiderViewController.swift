@@ -43,17 +43,13 @@ class ProfileRiderViewController: UIViewController, ProfileRiderPresenterOutput 
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "PhotoCell", bundle: nil),
-                                 forCellReuseIdentifier: "PhotoCellIdentifier")
         
-        tableView.register(UINib(nibName: "BikeCell", bundle: nil),
-                           forCellReuseIdentifier: "BikeCellIdentifier")
-        
-        tableView.register(UINib(nibName: "TeamCell", bundle: nil),
-                           forCellReuseIdentifier: "TeamCellIdentifier")
-        
-        tableView.register(UINib(nibName: "InfoCell", bundle: nil),
-                           forCellReuseIdentifier: "InfoCellIdentifier")
+        tableView.register(PhotoCell.nib(), forCellReuseIdentifier: PhotoCell.reuseIdentifier())
+        tableView.register(BikeCell.nib(), forCellReuseIdentifier: BikeCell.reuseIdentifier())
+        tableView.register(TeamCell.nib(), forCellReuseIdentifier: TeamCell.reuseIdentifier())
+        tableView.register(InfoCell.nib(), forCellReuseIdentifier: InfoCell.reuseIdentifier())
+        tableView.register(PersonalInformationCell.nib(), forCellReuseIdentifier: PersonalInformationCell.reuseIdentifier())
+        tableView.register(DetailsInfoCell.nib(), forCellReuseIdentifier: DetailsInfoCell.reuseIdentifier())
     }
 }
 
@@ -62,24 +58,32 @@ class ProfileRiderViewController: UIViewController, ProfileRiderPresenterOutput 
 extension ProfileRiderViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         switch presenter.viewModels[indexPath.row] {
         case is PhotoCellViewModel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCellIdentifier", for: indexPath) as! PhotoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: PhotoCell.reuseIdentifier(), for: indexPath) as! PhotoCell
             cell.populate(with: presenter.viewModels[indexPath.row] as! PhotoCellViewModel)
             return cell
         case is BikeCellViewModel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BikeCellIdentifier", for: indexPath) as! BikeCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BikeCell.reuseIdentifier(), for: indexPath) as! BikeCell
             cell.populate(with: presenter.viewModels[indexPath.row] as! BikeCellViewModel)
             return cell
         case is TeamCellViewModel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCellIdentifier", for: indexPath) as! TeamCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TeamCell.reuseIdentifier(), for: indexPath) as! TeamCell
             cell.populate(with: presenter.viewModels[indexPath.row] as! TeamCellViewModel)
             return cell
         case is InfoCellViewModel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCellIdentifier", for: indexPath) as! InfoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.reuseIdentifier(), for: indexPath) as! InfoCell
             cell.populate(with: presenter.viewModels[indexPath.row] as! InfoCellViewModel)
             return cell
+        case is PersonalInformationCellViewModel:
+            let cell = tableView.dequeueReusableCell(withIdentifier: PersonalInformationCell.reuseIdentifier(), for: indexPath) as! PersonalInformationCell
+            cell.populate(with: presenter.viewModels[indexPath.row] as! PersonalInformationCellViewModel)
+            return cell
+        case is DetailsInfoCellViewModel:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailsInfoCell.reuseIdentifier(), for: indexPath) as! DetailsInfoCell
+            cell.populate(with: presenter.viewModels[indexPath.row] as! DetailsInfoCellViewModel)
+            return cell
+            
         default:
             return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) 
         }
@@ -100,7 +104,7 @@ extension ProfileRiderViewController : UITableViewDelegate {
 // MARK: - Factory
 
 final class ProfileRiderViewControllerFactory {
-    static func new(
+    static func new (
         presenter: ProfileRiderPresenter
     ) -> ProfileRiderViewController {
         let controller = ProfileRiderViewController(presenter: presenter)

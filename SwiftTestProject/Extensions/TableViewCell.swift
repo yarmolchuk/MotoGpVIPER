@@ -14,4 +14,12 @@ extension UITableViewCell {
             completion(data, response, error)
         }.resume()
     }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: self.className, bundle: nil)
+    }
+    
+    static func reuseIdentifier() -> String {
+        return className
+    }
 }

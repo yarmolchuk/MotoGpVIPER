@@ -11,8 +11,8 @@ import Foundation
 // MARK: Protocol
 
 protocol TeamTableViewCellViewModel {
-    var name: String {get}
-    var uid: String {get}
+    var name: String { get }
+    var uid: String { get }
 }
 
 // MARK: Implementation

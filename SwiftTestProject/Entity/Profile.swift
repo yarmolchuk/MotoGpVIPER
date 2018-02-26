@@ -10,14 +10,14 @@ import Foundation
 
 final class Profile {
     let name: String
-    var team: String
-    var bike: String
-    var placeOfBirth: String
-    var dateOfBirth: String
-    var weight: String
-    var height: String
-    var photoUrl: String
-    var profile: String
+    let team: String
+    let bike: String
+    let placeOfBirth: String
+    let dateOfBirth: String
+    let weight: String
+    let height: String
+    let photoUrl: String
+    let profile: String
     
     init(name: String, team: String, bike: String, placeOfBirth: String, dateOfBirth: String,
          weight: String, height: String, photoUrl: String, profile: String) {

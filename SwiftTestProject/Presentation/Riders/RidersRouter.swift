@@ -13,7 +13,7 @@ import UIKit
 
 protocol RidersRouter {
     func profileRiderRouter() -> ProfileRiderRouter
-    func routeToProfileRiderInfo(presenter: ProfileRiderPresenter)
+    func routeToProfileRider(presenter: ProfileRiderPresenter)
 }
 
 // MARK: - Implementation
@@ -24,7 +24,7 @@ private final class RidersRouterImpl: NavigationRouter, RidersRouter {
         return ProfileRiderRouterFactory.default(navigationController: navigationController)
     }
     
-    func routeToProfileRiderInfo(presenter: ProfileRiderPresenter) {
+    func routeToProfileRider(presenter: ProfileRiderPresenter) {
         let controller = ProfileRiderViewControllerFactory.new(presenter: presenter)
         navigationController.pushViewController(controller, animated: true)
     }

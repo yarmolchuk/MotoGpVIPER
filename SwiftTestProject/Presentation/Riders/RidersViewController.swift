@@ -43,8 +43,7 @@ class RidersViewController: UIViewController, RidersPresenterOutput {
     private func configureTableView() {
         ridersTableView.dataSource = self
         ridersTableView.delegate = self
-        ridersTableView.register(UINib(nibName: "RiderTableViewCell", bundle: nil),
-                                 forCellReuseIdentifier: "RiderTableViewCellIdentifier")
+        ridersTableView.register(RiderTableViewCell.nib(), forCellReuseIdentifier: RiderTableViewCell.reuseIdentifier())
     }
 }
 
@@ -54,7 +53,7 @@ extension RidersViewController : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = presenter.viewModels[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RiderTableViewCellIdentifier", for: indexPath) as! RiderTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RiderTableViewCell.reuseIdentifier(), for: indexPath) as! RiderTableViewCell
         cell.populate(with: viewModel)
         return cell
     }

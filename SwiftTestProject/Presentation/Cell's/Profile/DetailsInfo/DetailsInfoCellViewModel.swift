@@ -11,20 +11,24 @@ import Foundation
 // MARK: Protocol
 
 protocol DetailsInfoCellViewModel {
-
+    var info: String { get }
 }
 
 // MARK: Implementation
 
 private class DetailsInfoCellViewModelImpl: DetailsInfoCellViewModel {
-
+    let info: String
+    
+    init(info: String) {
+        self.info = info
+    }
 }
 
 // MARK: Factory
 
 class DetailsInfoCellViewModelFactory {
-    static func `default`() -> DetailsInfoCellViewModel {
-        return DetailsInfoCellViewModelImpl()
+    static func `default`(info: String) -> DetailsInfoCellViewModel {
+        return DetailsInfoCellViewModelImpl(info: info)
     }
 }
 

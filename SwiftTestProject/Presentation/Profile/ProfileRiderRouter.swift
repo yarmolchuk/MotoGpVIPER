@@ -12,13 +12,13 @@ import UIKit
 // MARK: - Protocol
 
 protocol ProfileRiderRouter {
-    
+
 }
 
 // MARK: - Implementation
 
 private final class ProfileRiderRouterImpl: ProfileRiderRouter {
-    
+
 }
 
 // MARK: - Factory

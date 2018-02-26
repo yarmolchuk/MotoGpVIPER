@@ -9,7 +9,6 @@
 import UIKit
 
 class BikeCell: UITableViewCell {
-    
     @IBOutlet weak var bikeILabel: UILabel!
     
     func populate(with viewModel: BikeCellViewModel) {

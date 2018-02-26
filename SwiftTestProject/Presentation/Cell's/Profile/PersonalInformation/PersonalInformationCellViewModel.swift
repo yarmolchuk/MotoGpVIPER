@@ -31,7 +31,7 @@ private class PersonalInformationCellViewModelImpl: PersonalInformationCellViewM
 
 class PersonalInformationCellViewModelFactory {
     static func `default`(weight: String, height: String) -> PersonalInformationCellViewModel {
-        return PersonalInformationCellViewModelImpl(weight: weight, height:height)
+        return PersonalInformationCellViewModelImpl(weight: weight, height: height)
     }
 }
 

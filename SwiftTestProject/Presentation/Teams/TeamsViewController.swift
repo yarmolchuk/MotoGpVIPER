@@ -46,8 +46,7 @@ class TeamsViewController: UIViewController, TeamsPresenterOutput {
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "TeamTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "TeamTableViewCellIdentifier")
+        tableView.register(TeamTableViewCell.nib(), forCellReuseIdentifier: TeamTableViewCell.reuseIdentifier())
     }
     
     @objc fileprivate func showAllRiders() {
@@ -59,7 +58,7 @@ extension TeamsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = presenter.viewModels[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamTableViewCellIdentifier", for: indexPath) as! TeamTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TeamTableViewCell.reuseIdentifier(), for: indexPath) as! TeamTableViewCell
         cell.populate(with: viewModel)
         return cell
     }

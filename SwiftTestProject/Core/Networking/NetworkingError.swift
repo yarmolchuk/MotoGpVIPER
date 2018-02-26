@@ -11,11 +11,13 @@ import Foundation
 // MARK: Protocol
 
 protocol NetworkingError {
+
 }
 
 // MARK: Implementation
 
 private final class NetworkingErrorImpl: NetworkingError {
+
 }
 
 // MARK: Factory

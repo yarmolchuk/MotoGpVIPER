@@ -13,21 +13,23 @@ final class Rider {
     let teamUid: String
     
     let name: String
-    var team: String
-    var bike: String
-    var placeOfBirth: String
-    var dateOfBirth: String
-    var weight: String
-    var height: String
-    var photoUrl: String
+    let team: String
+    let number: String
+    let bike: String
+    let placeOfBirth: String
+    let dateOfBirth: String
+    let weight: String
+    let height: String
+    let photoUrl: String
     
-    init(uid: String, name: String, team: String, bike: String, placeOfBirth: String, dateOfBirth: String,
+    init(uid: String, name: String, number:String, team: String, bike: String, placeOfBirth: String, dateOfBirth: String,
          weight: String, height: String, photoUrl: String, teamUid: String) {
     
         self.uid = uid
         self.teamUid = teamUid
         
         self.name = name
+        self.number = number
         self.team = team
         self.bike = bike
         self.placeOfBirth = placeOfBirth

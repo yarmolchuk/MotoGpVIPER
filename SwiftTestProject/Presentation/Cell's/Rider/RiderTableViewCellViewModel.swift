@@ -14,10 +14,10 @@ protocol TableViewCellViewModel {
 }
 
 protocol RiderTableViewCellViewModel:  TableViewCellViewModel {
-    var uid: String {get}
-    var name: String {get}
-    var number: String {get}
-    var urlPhoto: String {get}
+    var uid: String { get }
+    var name: String { get }
+    var number: String { get }
+    var urlPhoto: String { get }
 }
 
 // MARK: Implementation

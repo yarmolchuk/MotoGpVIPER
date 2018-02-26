@@ -9,7 +9,6 @@
 import UIKit
 
 class PhotoCell: UITableViewCell {
-    
     @IBOutlet weak var photoImageView: UIImageView!
     
     func populate(with viewModel: PhotoCellViewModel) {

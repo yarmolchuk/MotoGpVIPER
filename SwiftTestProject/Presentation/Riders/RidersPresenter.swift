@@ -62,11 +62,11 @@ private final class RidersPresenterImpl: RidersPresenter, RidersInteractorOutput
         let profileRiderRouter = router.profileRiderRouter()
         let profileRiderPresenter = ProfileRiderPresenterFactory.default(interactor: profileRiderInteractor, router: profileRiderRouter)
         
-        router.routeToProfileRiderInfo(presenter: profileRiderPresenter)
+        router.routeToProfileRider(presenter: profileRiderPresenter)
     }
     
     private func riderViewModels(riders: [Rider]) -> [RiderTableViewCellViewModel] {
-        return riders.map{ RiderTableViewCellViewModelFactory.default(name: $0.name, number: "", urlPhoto: $0.photoUrl, uid: $0.uid) }
+        return riders.map{ RiderTableViewCellViewModelFactory.default(name: $0.name, number: $0.number, urlPhoto: $0.photoUrl, uid: $0.uid) }
     }
 }
 

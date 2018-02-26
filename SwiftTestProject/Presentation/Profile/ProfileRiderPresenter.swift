@@ -62,6 +62,8 @@ private final class ProfileRiderPresenterImpl: ProfileRiderPresenter, ProfileRid
         viewModelsForProfile.append(BikeCellViewModelFactory.default(bike: profile.bike))
         viewModelsForProfile.append(TeamCellViewModelFactory.default(team: profile.team))
         viewModelsForProfile.append(InfoCellViewModelFactory.default(placeOfBirth: profile.placeOfBirth, dateOfBirth: profile.dateOfBirth))
+        viewModelsForProfile.append(PersonalInformationCellViewModelFactory.default(weight: profile.weight, height: profile.height))
+        viewModelsForProfile.append(DetailsInfoCellViewModelFactory.default(info: profile.profile))
         
         return viewModelsForProfile
     }
